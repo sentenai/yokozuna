@@ -21,7 +21,7 @@
 %% pulled once riak search is removed from riak.
 
 -module(yz_rs_migration).
--compile(export_all).
+-compile([export_all, nowarn_export_all]).
 -include("yokozuna.hrl").
 
 %% @doc Determine if Riak Search is enabled.
