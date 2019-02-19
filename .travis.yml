@@ -1,6 +1,6 @@
 language: erlang
 otp_release:
-- R16B03
+  - 20.3.8
 cache:
   directories:
   - "$HOME/otp-basho"

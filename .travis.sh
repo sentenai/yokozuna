@@ -3,8 +3,10 @@
 set -o nounset
 set -o errexit
 
+declare -r otp_name='OTP_20'
+declare -r otp_release='20.3'
+
 declare -r build_status="$(mktemp)"
-declare -r otp_name='OTP_R16B02_basho10'
 declare -r otp_build_log_dir="$HOME/.kerl/builds/$otp_name"
 declare -r otp_install_dir="$HOME/otp-basho"
 declare -r kerl_activate="$otp_install_dir/activate"
@@ -36,6 +38,9 @@ function build_ticker
 
 function build_otp
 {
+    return 0
+    # ↑ FIXME is custom OTP needed at all?
+    
     if [[ -f $otp_install_dir/activate ]]
     then
         echo "Found $otp_name installation at $otp_install_dir"
@@ -46,14 +51,15 @@ function build_otp
 
         echo -n 'true' > "$build_status"
         build_ticker &
-        kerl build git https://github.com/basho/otp.git "$otp_name" "$otp_name"
+        kerl update releases
+        kerl build "$otp_release" "$otp_name"
         echo -n 'false' > "$build_status"
         wait
 
         kerl install "$otp_name" "$otp_install_dir"
     fi
 
-    exit 0
+    return 0
 }
 
 function do_tests
