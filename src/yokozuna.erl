@@ -23,7 +23,7 @@
 
 -type fold_fun() :: fun(([term()], Acc::term()) -> Acc::term()).
 
--behaviour(riak_kv_update_hook).
+%% -behaviour(riak_kv_update_hook).
 
 %% riak_kv_update_hook behaviors
 -export([
