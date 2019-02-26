@@ -80,7 +80,7 @@ function do_tests
     fi
 
     make
-    make test
+    #make test
 }
 
 if [[ $1 == 'build' ]]

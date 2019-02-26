@@ -4,9 +4,9 @@ PULSE_TESTS = yz_solrq_eqc
 
 REBAR ?= $(shell pwd)/rebar3
 
-.PHONY: deps rel stagedevrel test
+.PHONY: compile deps rel stagedevrel test
 
-all: deps compile-riak-test
+all: compile # compile-riak-test
 
 compile: deps
 	$(REBAR) compile
