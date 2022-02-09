@@ -266,6 +266,11 @@
       -->
     <maxBooleanClauses>1024</maxBooleanClauses>
 
+    <!-- Solr Slow Queries
+
+        Log queries slower than X milliseconds
+    -->
+    <slowQueryThresholdMillis>1000</slowQueryThresholdMillis>
 
     <!-- Solr Internal Query Caches
 
